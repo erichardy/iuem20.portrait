@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="iuem20.portrait">
+
+<body>
+
+<metal:content-core fill-slot="main">
+  <metal:content-core define-macro="main">
+  <div class="container" tal:define="portraits python:view.getPortraitsObjs();">
+   <div class="pushtop super text-center" tal:content="view/getViewTitle">
+        	L'équipe
+   </div>
+   <!-----la gallerie, par ordre alphabetique------>
+   <div class="thumbnail-wrapper" tal:condition="portraits">
+     <span  tal:omit-tag="" tal:repeat="person portraits">
+     <div class="thumbnail-portrait"
+          tal:define="image nocall:person/thumbnail">
+       <a href="" tal:attributes="href string:${person/absolute_url}">
+	      <img tal:condition="image"
+	           tal:attributes="src string:${person/absolute_url}/@@download/thumbnail/${image/filename}"
+	           class="img-circle portrait-second" />
+	      <h4 tal:content="string:${person/first_name} ${person/family_name}">NAME</h4>
+	      <p tal:content="python:person.getAffiliations()">Affiliations</p>
+      </a>    
+     </div>
+     </span>
+   </div>
+  </div>
+  </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+  

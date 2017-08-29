@@ -1,0 +1,135 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="iuem20.portrait">
+<body
+	tal:define="portal_state context/@@plone_portal_state;
+	            portal_url portal_state/portal_url">
+
+<metal:content-core fill-slot="main">
+  <metal:content-core define-macro="main">
+  <div tal:define="
+                   toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+		<section id="iuem20-portrait"
+		  tal:define="firstname string:${context/first_name};
+		              familyname string:${context/family_name};
+		              mail string:${context/email};
+		              thumb nocall:context/thumbnail;
+		              image nocall:context/image;
+		              pictFilename python:view.getPictFilename();
+		              jobs python:view.getJobs();
+		              affiliations python:view.getAffiliations();
+		              email python:view.getPortraitAttr('email');
+		              eemail python:view.encodeEmail(email);
+		              contact python:view.mailEncoded();
+		              personal_page python:view.getPortraitAttr('personal_page');
+		              unit_page python:view.getPortraitAttr('unit_page');
+		              research python:view.getPortraitAttr('research');
+		              bio_title view/bio_title;
+		              "
+		>
+			<div class="full-width">
+				<!---- conteneur des infos de la carte d'ID  --------->
+				<div class="personnel-info text-center">
+					<div class="personnel-name"
+					     tal:content="string:${firstname} ${familyname}">
+					     prenom nom
+					</div>
+					<div class="personnel-title"
+					      tal:content="string:${context/status}">
+					      status
+					</div>
+					<hr />
+					<!----métier de la personne-->
+					<div class="personnel-job"
+					     tal:content="string:${jobs}">
+						jobs
+					</div>
+					<!----affiliations 1,2 et 3, séparées par une virgule-->
+					<div class="personnel-affiliation"
+					     tal:content="string:${affiliations}">
+					 </div>
+					<!----Email-->
+					<div tal:condition="contact">
+					  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+					  <span id="person-contact-coded" tal:attributes="contact python:view.mailEncoded()"></span>
+					  <a id="person-contact" href="">
+					     Contact
+					  </a>
+					</div>
+					<!----lien vers page perso officielle-->
+					<span tal:condition="python:view.getPortraitAttr('personal_page')">
+						<a  href=""
+						   tal:attributes="href string:${personal_page}"
+						   target="_blank"
+						   i18n:translate="">
+						   personal page
+						</a>
+						<br />
+					</span>
+					<!----lien vers research gate/ autre-->
+					<span tal:condition="python:view.getPortraitAttr('research')">
+						<a href=""
+						   tal:attributes="href string:${research}"
+						   target="_blank"
+						   i18n:translate="">
+						   publications and work
+						</a>
+						<br />
+					</span>
+					<!----site du labo/groupe-->
+					<span tal:condition="python:view.getPortraitAttr('unit_page')">
+						<a href=""
+						   tal:attributes="href string:${unit_page}"
+						   target="_blank"
+						   i18n:translate="">
+						   partner's website
+					</a>
+					</span>
+				</div>
+					<!---- photo du portrait  --------->
+				<div class="personnel-img-wrapper"
+				     tal:condition="pictFilename"
+				     tal:define="image nocall:context/image">
+					<img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename}"/>
+				</div>	
+					<!---- auteur de la photo  --------->
+				<div tal:condition="python:view.getPortraitAttr('img_author')"
+				     class="img-author"
+				     tal:content="python:view.getPortraitAttr('img_author')">pict author</div>
+				<div tal:condition="python:not view.getPortraitAttr('img_author')"
+				     class="img-no-author">
+				  
+				</div>
+		   </div>
+		   
+		   <section id="viewlet-alt-languages" tal:content="structure provider:alt-languages" />
+				<!----La courte biographie --------->
+			<div class="full-width">
+				<div class="row personnel-bio col-xs-12 col-md-10 col-md-offset-1">
+					<span tal:condition="python:view.bio()">
+					<h2 tal:condition="bio_title"
+					    tal:content="string:${bio_title}">
+					      Biographie title
+					</h2>
+					<p class="text-justify"
+					   tal:content="structure string:${context/bio/raw}">
+					  bio
+					</p>
+					</span>
+				</div>
+
+			</div>
+
+       </section>
+
+</div>
+  </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+  
