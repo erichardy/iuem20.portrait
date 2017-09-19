@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-08-25 09:03+0000\n"
+"POT-Creation-Date: 2017-09-19 14:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,11 +70,11 @@ msgstr ""
 msgid "iuem20 portrait Settings Description"
 msgstr ""
 
-#: ./interfaces.py:163
+#: ./interfaces.py:164
 msgid "jobs"
 msgstr ""
 
-#: ./interfaces.py:174
+#: ./interfaces.py:175
 msgid "main affiliation"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "person first name"
 msgstr ""
 
-#: ./interfaces.py:189
+#: ./interfaces.py:190
 msgid "personal page"
 msgstr ""
 
@@ -98,7 +98,11 @@ msgstr ""
 msgid "picture author"
 msgstr ""
 
-#: ./interfaces.py:154
+#: ./browser/portraits_view.py:18
+msgid "portraits_view"
+msgstr ""
+
+#: ./interfaces.py:155
 msgid "position"
 msgstr ""
 
@@ -106,11 +110,11 @@ msgstr ""
 msgid "position, jobs, etc..."
 msgstr ""
 
-#: ./interfaces.py:178
+#: ./interfaces.py:179
 msgid "second affiliation"
 msgstr ""
 
-#: ./interfaces.py:164
+#: ./interfaces.py:165
 msgid "select your jobs"
 msgstr ""
 
@@ -118,11 +122,11 @@ msgstr ""
 msgid "small photo"
 msgstr ""
 
-#: ./interfaces.py:170
+#: ./interfaces.py:171
 msgid "status"
 msgstr ""
 
-#: ./interfaces.py:182
+#: ./interfaces.py:183
 msgid "third affiliation"
 msgstr ""
 
@@ -134,14 +138,14 @@ msgstr ""
 msgid "very short portrait description"
 msgstr ""
 
-#: ./interfaces.py:187
+#: ./interfaces.py:188
 msgid "web"
 msgstr ""
 
-#: ./interfaces.py:197
+#: ./interfaces.py:198
 msgid "web page of your researches"
 msgstr ""
 
-#: ./interfaces.py:193
+#: ./interfaces.py:194
 msgid "web site of the research unit"
 msgstr ""

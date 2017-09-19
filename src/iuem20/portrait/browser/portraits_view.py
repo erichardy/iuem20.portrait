@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# from operator import attrgetter
+from iuem20.portrait import _
 from plone import api
 from plonetheme.iuem20.utils import getSettingValue
 from zope.publisher.browser import BrowserView
@@ -14,6 +14,8 @@ logger = logging.getLogger('iuem20.portrait')
 
 
 class portraitsView(BrowserView):
+
+    title = _(u'portraits_view')
 
     def __init__(self, context, request):
         self.context = context
