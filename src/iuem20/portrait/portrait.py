@@ -10,6 +10,8 @@ from iuem20.portrait import _
 from iuem20.portrait.interfaces import IPortrait
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
+from plone.dexterity.browser import edit
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from plone.dexterity.content import Container
 # from plonetheme.iuem20.utils import getSettingValue
 from plonetheme.iuem20.utils import getTitleFromVoc
@@ -183,7 +185,7 @@ class AddForm(DefaultAddForm):
                 logger.info(group.label)
 
     def update(self):
-        # super(add.DefaultAddForm, self).update()
+        super(DefaultAddForm, self).update()
         DefaultAddForm.update(self)
         # logger.info('in update addForm portrait')
         # logger.info(self.context)
@@ -223,6 +225,13 @@ class AddForm(DefaultAddForm):
 
 class AddView(DefaultAddView):
     form = AddForm
+    # template = ViewPageTemplateFile("portrait_addForm.pt")
+    # index = template
+
+
+class EditForm(edit.DefaultEditForm):
+    # template = ViewPageTemplateFile("portrait_addForm.pt")
+    pass
 
 
 """

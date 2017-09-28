@@ -60,14 +60,31 @@
 	    provides="zope.publisher.interfaces.browser.IBrowserPage"
 	    factory=".portrait.AddView"
     />
-
 	<class class=".portrait.AddView">
 	    <require
 	        permission="cmf.AddPortalContent"
 	        interface="zope.publisher.interfaces.browser.IBrowserPage"
 	        />
 	</class>
-  
+
+    <!-- FTI add form  cf plone.dexterity.browser.configure.zcml
+    <browser:page
+        for="iuem20.portrait.interfaces.IPortrait"
+        name="++add++iuem20.portrait"
+        template="portrait_addForm.pt"
+        class=".portrait.AddView"
+        permission="cmf.ManagePortal"
+        />
+ 	-->
+
+<!--
+   <browser:page
+	   for=".interfaces.IPortrait"
+	   name="edit"
+	   class=".portrait.EditForm"
+	   permission="cmf.ModifyPortalContent"
+    />
+-->
     <!--Subscribers Objects initialized -->
     <subscriber
       for=".portrait.IPortrait

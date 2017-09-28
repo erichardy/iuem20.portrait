@@ -105,11 +105,14 @@
 				  
 				</div>
 		   </div>
-		   
-		   <section id="viewlet-alt-languages" tal:content="structure provider:alt-languages" />
+           <div class="full-width row">
+             <div class="col-xs-12 col-md-10 col-md-offset-2">
+		       <section id="viewlet-alt-languages" tal:content="structure provider:alt-languages" />
+		     </div>
+           </div>
 				<!----La courte biographie --------->
 			<div class="full-width">
-				<div class="row personnel-bio col-xs-12 col-md-10 col-md-offset-1">
+				<div class="row personnel-bio col-xs-12 col-md-10 col-md-offset-2">
 					<span tal:condition="python:view.bio()">
 					<h2 tal:condition="bio_title"
 					    tal:content="string:${bio_title}">
