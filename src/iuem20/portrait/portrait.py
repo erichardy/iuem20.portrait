@@ -74,7 +74,7 @@ class PortraitView(BrowserView):
 
     def bio(self):
         try:
-            return len(self.context.bio.raw) > 4
+            return len(self.context.bio.output) > 4
         except Exception:
             return False
 
@@ -139,7 +139,7 @@ class portrait(Container):
 
     def bioFR(self):
         try:
-            return len(self.bio_fr.raw) > 4
+            return len(self.bio_fr.output) > 4
         except Exception:
             return False
 
